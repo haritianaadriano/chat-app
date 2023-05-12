@@ -61,7 +61,7 @@ export default function SignIn({ data }: any) {
             placeholder="password"
           />
           <input type="submit" className="fadeIn fourth" value="Log in" />
-          <button onClick={signup}>Signup</button>
+          <button onClick={signup} className="fadeIn fourth">SIGN UP</button>
         </form>
       </div>
     </div>
