@@ -1,46 +1,44 @@
 import { ADMIN_TOKEN } from "@/secrets/token";
 import axios from "axios";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
-
-export async function getServerSideProps(context: any) {
-  const token = ADMIN_TOKEN;
-
-  // Configurer l'en-tête Authorization avec le JWT token
-  const headers = {
-    Authorization: `Bearer ${token}`,
-  };
-
-  // Effectuer l'appel à l'API avec les en-têtes d'authentification
-  const res = await axios.get("http://localhost:3000/user", { headers });
-  const data = res.data;
-
-  // Retourne les données en tant que propriété
-  return {
-    props: {
-      data,
-    },
-  };
-}
+import React, { useEffect, useState } from "react";
 
 export default function SignIn({ data }: any) {
-  const [email, setEmail] = useState<string>("");
   const router = useRouter();
+  const [login, setLogin] = useState({
+    email: "",
+    password: ""
+  });
+  const [response, setResponse] = useState(null);
+
+  async function sendData() {
+    try{
+      const res = await axios.post("http://localhost:3000/post", login);
+      setResponse(res.data);
+      console.log(response);
+    }
+    catch(error){
+      console.log(error);
+    }
+  };
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const content = new FormData(event.currentTarget);
     const emailValue = content.get("email") as string;
-    setEmail(emailValue);
-    authentificated(emailValue);
+    const passwordValue = content.get("password") as string;
+
+    setLogin({
+      ...login,
+      email: emailValue,
+      password: passwordValue
+    })
+
+    sendData();
   }
 
-  function authentificated(emailValue: string) {
-    if (emailValue === data.email) {
-      router.push("/home");
-    } else {
+  function signup() {
       router.push("/auth/signup");
-    }
   }
 
   return (
@@ -63,6 +61,7 @@ export default function SignIn({ data }: any) {
             placeholder="password"
           />
           <input type="submit" className="fadeIn fourth" value="Log in" />
+          <button onClick={signup}>Signup</button>
         </form>
       </div>
     </div>
