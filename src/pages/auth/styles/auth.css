@@ -77,6 +77,9 @@ h2.active {
   color: #5fbae9;
   border-bottom: 2px solid #5fbae9;
 }
+p.active{
+  color:#5fbae9
+}
 
 
 
