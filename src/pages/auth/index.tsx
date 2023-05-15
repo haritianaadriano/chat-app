@@ -1,4 +1,3 @@
-import { ADMIN_TOKEN } from "@/secrets/token";
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -13,12 +12,13 @@ export default function SignIn({ data }: any) {
 
   async function sendData() {
     try{
-      const res = await axios.post("http://localhost:3000/post", login);
+      const res = await axios.post("http://localhost:3000/users/login", login);
       setResponse(res.data);
       console.log(response);
     }
     catch(error){
       console.log(error);
+      signup;
     }
   };
 
