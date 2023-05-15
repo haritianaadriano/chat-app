@@ -1,9 +1,13 @@
-export default function SignUp(){
+import React from "react";
 
+export default function SignUp(){
+    function handleSubmit(event: React.FormEvent<HTMLFormElement>){
+        event.preventDefault();
+    }
     return(
         <div className="wrapper fadeInDow">
             <div className="formContent">
-                <h2 className="active">Sign in</h2>
+                <h2 className="active">Sign up</h2>
                 <form>
                     <input 
                         type="text"

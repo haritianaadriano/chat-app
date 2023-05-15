@@ -18,7 +18,7 @@ export default function SignIn({ data }: any) {
     }
     catch(error){
       console.log(error);
-      signup;
+      signup();
     }
   };
 
