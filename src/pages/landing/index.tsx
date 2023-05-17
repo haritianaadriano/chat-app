@@ -1,7 +1,9 @@
+import Nav from "@/utils/layout/navbar";
+
 export default function Home(){
     return (
         <div>
-            <h3>Hello World</h3>
+            <Nav></Nav>
         </div>
     )
 }

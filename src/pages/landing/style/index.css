@@ -1,0 +1,20 @@
+html{
+    background-color: #022536;
+  }
+  body {
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+  }
+  
+h2.inactive {
+    color: #cccccc;
+  }
+  
+  h2.active {
+    color: #5fbae9;
+    border-bottom: 2px solid #5fbae9;
+  }
+  p.active{
+    color:#5fbae9
+  }
+    
