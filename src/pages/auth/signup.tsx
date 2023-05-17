@@ -1,15 +1,20 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import axios from "axios";
+import CreatedSuccessfully from "@/utils/modals/signup";
 
 export default function SignUp() {
   const router = useRouter();
+  const [modalOpen, setModalOpen] = useState(false);
   const [signUp, setSignUp] = useState({
     email: "",
     password: "",
     name: "",
     bio: ""
   });
+
+  const close = () => {setModalOpen(false)};
+  const open = () => {setModalOpen(true)};
 
   function sendData() {
     event?.preventDefault();
@@ -20,7 +25,7 @@ export default function SignUp() {
         }
       })
       .then(response => {
-        if (response.status === 200 || response.status >= 200) {
+        if (response.status == 200 || response.status == 201 || response.status == 203) {
           console.log(response);
           return response.data;
         } 
@@ -92,9 +97,7 @@ export default function SignUp() {
           <button className="fadeIn fourth" onClick={sendData}>
             SIGN UP
           </button>
-          <button className="fadeIn fourth" onClick={logIn}>
-            LOG IN
-          </button>
+          {modalOpen && <CreatedSuccessfully handleClose={close} modalOpen={modalOpen}/>}
         </form>
       </div>
     </div>
