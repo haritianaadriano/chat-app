@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
@@ -9,24 +10,23 @@ export default function SignIn() {
   });
 
   function sendData() {
+    console.log(login);
     event?.preventDefault();
-    fetch("http://localhost:8080/users/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(login)
-    })
+    axios
+      .post("http://localhost:8080/users/login", login, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
       .then(response => {
         if (response.status === 200) {
-          return response.json();
+          console.log(response);
+          return response.data;
         } 
-        else if (response.status === 404) {
+        else{
+          signup();
           throw new Error("User not found");
         } 
-        else {
-          throw new Error(`Unexpected response status: ${response.status}`);
-        }
       })
       .then(data => {
         sessionStorage.setItem("token", data.user.token);

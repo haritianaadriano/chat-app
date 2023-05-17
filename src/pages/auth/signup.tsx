@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import axios from "axios";
 
 export default function SignUp() {
   const router = useRouter();
@@ -11,32 +12,31 @@ export default function SignUp() {
   });
 
   function sendData() {
-    console.log(signUp);
     event?.preventDefault();
-    fetch("http://localhost:8080/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(signUp)
-    })
+    axios
+      .post("http://localhost:8080/users", signUp, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
       .then(response => {
-        if (response.status === 200) {
+        if (response.status === 200 || response.status >= 200) {
           console.log(response);
-          return response.json();
-        } 
-        else if (response.status === 404) {
-          throw new Error("User not found");
+          return response.data;
         } 
         else {
           throw new Error(`Unexpected response status: ${response.status}`);
         }
       })
       .then(data => {
-        sessionStorage.setItem("token", data.user.token);
-        router.push("/home");
+        
       })
       .catch(error => console.error(error));
+  }
+
+  function logIn(){
+    event?.preventDefault();
+    router.push("/auth");
   }
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -45,11 +45,6 @@ export default function SignUp() {
       ...prevState,
       [name]: value
     }));
-  }
-
-  function logIn() {
-    event?.preventDefault();
-    router.push("/auth");
   }
 
   return (
