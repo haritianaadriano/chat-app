@@ -17,6 +17,7 @@ export default function SignUp() {
   const open = () => {setModalOpen(true)};
 
   function sendData() {
+    open();
     event?.preventDefault();
     axios
       .post("http://localhost:8080/users", signUp, {
@@ -27,6 +28,7 @@ export default function SignUp() {
       .then(response => {
         if (response.status == 200 || response.status == 201 || response.status == 203) {
           console.log(response);
+          open();
           return response.data;
         } 
         else {
@@ -36,7 +38,10 @@ export default function SignUp() {
       .then(data => {
         
       })
-      .catch(error => console.error(error));
+      .catch(error => {
+        console.error(error);
+        }
+      );
   }
 
   function logIn(){
@@ -54,7 +59,10 @@ export default function SignUp() {
 
   return (
     <div className="wrapper fadeInDow">
-      <div className="formContent">
+      <div 
+        className="formContent"
+        onClick={close}  
+      >
         <h2 className="active">Sign up</h2>
         <p className="active">Create your own account</p>
         <form>
@@ -96,6 +104,9 @@ export default function SignUp() {
           />
           <button className="fadeIn fourth" onClick={sendData}>
             SIGN UP
+          </button>
+          <button className="fadeIn fourth" onClick={logIn}>
+            LOG IN
           </button>
           {modalOpen && <CreatedSuccessfully handleClose={close} modalOpen={modalOpen}/>}
         </form>

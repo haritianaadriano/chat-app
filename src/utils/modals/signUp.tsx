@@ -33,12 +33,7 @@ export default function CreatedSuccessfully({handleClose}: any){
                 exit="exit"
             >
                 <form>
-                    <h3>onClick={(e) => e.stopPropagation}
-                className="modal"
-                variants={dropIn}
-                initial="hidden"
-                animate="visible"
-                exit="exit"</h3>
+                    <h3>User was save successfully !</h3>
                 </form>
             </motion.div>
         </Backdrop>

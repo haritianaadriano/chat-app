@@ -1,13 +1,18 @@
+import AuthentificationFailed from "@/utils/modals/login";
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 export default function SignIn() {
   const router = useRouter();
+  const [modalOpen, setModalOpen] = useState(false);
   const [login, setLogin] = useState({
     email: "",
     password: ""
   });
+
+  const close = () => {setModalOpen(false)};
+  const open = () => {setModalOpen(true)};
 
   function sendData() {
     console.log(login);
@@ -23,16 +28,15 @@ export default function SignIn() {
           console.log(response);
           return response.data;
         } 
-        else{
-          signup();
-          throw new Error("User not found");
-        } 
       })
       .then(data => {
         sessionStorage.setItem("token", data.user.token);
         router.push("/home");
       })
-      .catch(error => console.error(error));
+      .catch(error => {
+        console.error(error)
+        open();
+      });
   }
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -50,7 +54,10 @@ export default function SignIn() {
 
   return (
     <div className="wrapper fadeInDow">
-      <div className="formContent">
+      <div 
+        className="formContent"
+        onClick={close}
+      >
         <h2 className="active">Sign in</h2>
         <form>
           <input
@@ -77,6 +84,7 @@ export default function SignIn() {
           <button onClick={signup} className="fadeIn fourth">
             SIGN UP
           </button>
+          {modalOpen && <AuthentificationFailed handleClose={close} modalOpen={modalOpen}/>}
         </form>
       </div>
     </div>
