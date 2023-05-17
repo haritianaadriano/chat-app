@@ -26,7 +26,7 @@ export default function CreatedSuccessfully({handleClose}: any){
         <Backdrop onClick={handleClose}>
             <motion.div
                 onClick={(e) => e.stopPropagation}
-                className="modal"
+                className="success"
                 variants={dropIn}
                 initial="hidden"
                 animate="visible"
