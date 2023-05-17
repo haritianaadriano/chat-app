@@ -1,57 +1,66 @@
-import axios from "axios";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-export default function SignIn({ data }: any) {
+export default function SignIn() {
   const router = useRouter();
   const [login, setLogin] = useState({
     email: "",
     password: ""
   });
-  const [response, setResponse] = useState(null);
 
-  async function sendData() {
-    try{
-      const res = await axios.post("http://localhost:3000/users/login", login);
-      setResponse(res.data);
-      console.log(response);
-    }
-    catch(error){
-      console.log(error);
-      signup();
-    }
-  };
-
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const content = new FormData(event.currentTarget);
-    const emailValue = content.get("email") as string;
-    const passwordValue = content.get("password") as string;
-
-    setLogin({
-      ...login,
-      email: emailValue,
-      password: passwordValue
+  function sendData() {
+    event?.preventDefault();
+    fetch("http://localhost:8080/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(login)
     })
+      .then(response => {
+        if (response.status === 200) {
+          return response.json();
+        } 
+        else if (response.status === 404) {
+          throw new Error("User not found");
+        } 
+        else {
+          throw new Error(`Unexpected response status: ${response.status}`);
+        }
+      })
+      .then(data => {
+        sessionStorage.setItem("token", data.user.token);
+        router.push("/home");
+      })
+      .catch(error => console.error(error));
+  }
 
-    sendData();
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const { name, value } = event.target;
+    setLogin(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
   }
 
   function signup() {
-      router.push("/auth/signup");
+    event?.preventDefault();
+    router.push("/auth/signup");
   }
 
   return (
     <div className="wrapper fadeInDow">
       <div className="formContent">
         <h2 className="active">Sign in</h2>
-        <form onSubmit={handleSubmit}>
+        <form>
           <input
             type="text"
             id="email"
             className="fadeIn second"
             name="email"
             placeholder="email"
+            value={login.email}
+            onChange={handleChange}
           />
           <input
             type="text"
@@ -59,9 +68,15 @@ export default function SignIn({ data }: any) {
             className="fadeIn third"
             name="password"
             placeholder="password"
+            value={login.password}
+            onChange={handleChange}
           />
-          <input type="submit" className="fadeIn fourth" value="Log in" />
-          <button onClick={signup} className="fadeIn fourth">SIGN UP</button>
+          <button className="fadeIn fourth" onClick={sendData}>
+            LOG IN
+          </button>
+          <button onClick={signup} className="fadeIn fourth">
+            SIGN UP
+          </button>
         </form>
       </div>
     </div>
