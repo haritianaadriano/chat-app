@@ -15,3 +15,22 @@
 button{
     background: linear-gradient(to right,rgb(15, 153, 245),#69b1d4);
 }
+
+.profil-nav{
+    background-color: aliceblue;
+    height: 100px;
+}
+
+.container-img{
+    height: 100px;
+    width: 100px;
+}
+img{
+    height: 100%;
+    width: 100%;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

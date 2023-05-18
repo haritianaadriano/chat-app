@@ -1,0 +1,18 @@
+export type Channel = {
+        id: number,
+        name: string,
+        type: string,
+        createdAt: string,
+        updatedAt: string,
+        ownerId: number,
+        owner: {
+            id: String,
+            name: string,
+            email: string
+        }
+}
+
+export type Response = {
+    status: boolean,
+    channels: [Channel]
+}
