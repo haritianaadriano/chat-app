@@ -7,9 +7,12 @@ html{
     background-color: #022536;
   }
   
-h3 h2 p {
-    color: #5fbae9;
+h1 {
+    color: #92badd;
   }
+p {
+  color: azure;
+}
 
 .container{
   display: flex;

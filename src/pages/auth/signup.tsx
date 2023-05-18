@@ -26,7 +26,7 @@ export default function SignUp() {
         }
       })
       .then(response => {
-        if (response.status == 200 || response.status == 201 || response.status == 203) {
+        if (response.status >= 200 && response.status < 300) {
           console.log(response);
           open();
           return response.data;

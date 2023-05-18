@@ -1,5 +1,6 @@
 import AuthentificationFailed from "@/utils/modals/login";
 import axios from "axios";
+import { channel } from "diagnostics_channel";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
@@ -24,7 +25,7 @@ export default function SignIn() {
         }
       })
       .then(response => {
-        if (response.status === 200) {
+        if (response.status >= 200 && response.status < 300) {
           console.log(response);
           return response.data;
         } 

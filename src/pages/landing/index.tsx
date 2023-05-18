@@ -6,11 +6,11 @@ import { useState } from "react";
 
 export default function Home(){
     const router = useRouter();
-    const [data, setData] = useState();
     const [modalOpen, setModalOpen] = useState(false);
     const close = () => {setModalOpen(false)};
     const open = () => {setModalOpen(true)};
-    const chat = () => router.push("/chat");
+    const chat = () => router.push("/landing/chat");
+    const channel = () => router.push("/landing/channel");
 
     function getData() {
         event?.preventDefault();
@@ -22,13 +22,13 @@ export default function Home(){
             }
           })
           .then(response => {
-            if (response.status === 200) {
+            if (response.status >= 200 && response.status < 300) {
               console.log(response);
+              channel();
               return response.data;
             } 
           })
           .then(data => {
-            setData(data);
             console.log(data);
           })
           .catch(error => {
@@ -44,7 +44,7 @@ export default function Home(){
             </header>
             <div>
                 <div className="welcoming">
-                    <h3>Welcome to Chat-tsik</h3>
+                    <h1>Welcome to Chat-tsik</h1>
                     <p>
                         Getting started with ...
                     </p>
