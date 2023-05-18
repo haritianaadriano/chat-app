@@ -29,6 +29,9 @@ export default function Home(){
               channel();
               return response.data;
             } 
+            else{
+              open();
+            }
           })
           .then(data => {
             console.log(data);

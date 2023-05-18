@@ -6,7 +6,8 @@ const Nav: React.FC = () => {
 
   const home = () => router.push("/landing");
   const channel = () => router.push("/landing/channel");
-  const chat = () => router.push("/chat");
+  const chat = () => router.push("/landing/chat");
+  const profil = () => router.push("/landing/profil");
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -29,6 +30,11 @@ const Nav: React.FC = () => {
             <li className="nav-item">
               <a className="nav-link" href="#" onClick={chat}>
                 Chat
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#" onClick={profil}>
+                Profil
               </a>
             </li>
           </ul>
