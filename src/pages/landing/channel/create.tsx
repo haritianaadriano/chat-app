@@ -4,10 +4,12 @@ import Backdrop from "@/utils/backdrop/backdrop";
 import axios from "axios";
 import HandleError from "@/utils/modals/errorHandling";
 import HandleSuccess from "@/utils/modals/successHandling";
+import { useRouter } from "next/router";
 
 export default function CreateChannel({ handleClose }: any) {
     const [openSuccess, setOpenSuccess] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
+    const router = useRouter();
     const closeModalSuccess = () => {setOpenSuccess(false)};
     const openModalSuccess = () => {setOpenSuccess(true)};
     const close = () => {setModalOpen(false)};
@@ -70,7 +72,7 @@ export default function CreateChannel({ handleClose }: any) {
       .post("http://localhost:8080/channel", channel, {
         headers: {
             "Content-Type": "application/json",
-            "Authorization": sessionStorage.getItem("token")
+            "Authorization": `Bearer ${sessionStorage.getItem("token")}`
           }
       })
       .then(response => {
@@ -135,7 +137,7 @@ export default function CreateChannel({ handleClose }: any) {
           </form>
         </motion.div>
         {modalOpen && <HandleError message={"Error when creating channel"} handleClose={close} modalOpen={modalOpen}/>}
-        {openSuccess && <HandleSuccess message={"Error when creating channel"} handleClose={close} modalOpen={modalOpen}/>}
+        {openSuccess && <HandleSuccess message={"Channel created successfully"} handleClose={close} modalOpen={modalOpen}/>}
       </Backdrop>
     </div>
   );

@@ -32,6 +32,9 @@ export default function SignIn() {
       })
       .then(data => {
         sessionStorage.setItem("token", data.user.token);
+        sessionStorage.setItem("username", data.user.name);
+        console.log(data.user);
+        
         router.push("/landing");
       })
       .catch(error => {

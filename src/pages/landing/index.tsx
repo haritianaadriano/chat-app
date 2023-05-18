@@ -20,7 +20,7 @@ export default function Home(){
           .get("http://localhost:8080/channels", {
             headers: {
               "Content-Type": "application/json",
-              "Authorization": sessionStorage.getItem("token")
+              "Authorization": `Bearer ${sessionStorage.getItem("token")}`
             }
           })
           .then(response => {
@@ -54,7 +54,7 @@ export default function Home(){
             </header>
             <div onClick={closeCreate}>
                 <div className="welcoming">
-                    <h1>Welcome to Chat-tsik</h1>
+                    <h1>Welcome to Chat-tsik {`"${sessionStorage.getItem("username")}"`}</h1>
                     <p>
                         Getting started with ...
                     </p>
