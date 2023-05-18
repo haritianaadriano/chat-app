@@ -1,0 +1,17 @@
+.form-channel{
+    width: clamp(50%, 700px, 90%);
+    height: min(50%, 300px);
+    margin: auto;
+    padding: 0 2rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #92badd;
+    color: #022536;
+    font-weight: bold;
+}
+
+button{
+    background: linear-gradient(to right,rgb(15, 153, 245),#69b1d4);
+}

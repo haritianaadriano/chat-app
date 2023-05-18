@@ -3,10 +3,12 @@ import HandleError from "@/utils/modals/errorHandling";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import CreateChannel from "./channel/create";
 
 export default function Home(){
     const router = useRouter();
     const [modalOpen, setModalOpen] = useState(false);
+    const [createOpen, setCreateOpen] = useState(false);
     const close = () => {setModalOpen(false)};
     const open = () => {setModalOpen(true)};
     const chat = () => router.push("/landing/chat");
@@ -36,13 +38,21 @@ export default function Home(){
             open();
           });
       }
+
+      function openCreate(){
+        setCreateOpen(true);
+        setModalOpen(false);
+      }
+      function closeCreate(){
+        setCreateOpen(false);
+      }
     
     return (
         <div>
             <header>
                 <Nav/>
             </header>
-            <div>
+            <div onClick={closeCreate}>
                 <div className="welcoming">
                     <h1>Welcome to Chat-tsik</h1>
                     <p>
@@ -64,8 +74,9 @@ export default function Home(){
                     </div>
                 </div>
             </div>
-            {modalOpen && <HandleError message={"sorry create a chanel"} handleClose={close} modalOpen={modalOpen}/>}
-            {modalOpen && <button>Create channel</button>}
+            {createOpen && <CreateChannel handleClose={close}/>}
+            {modalOpen && <HandleError message={"you don't have a chanel please create"} handleClose={close} modalOpen={modalOpen}/>}
+            {modalOpen && <button onClick={openCreate}>Create channel</button>}
         </div>
     )
 }
