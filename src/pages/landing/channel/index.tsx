@@ -2,9 +2,13 @@ import { useEffect, useState } from "react";
 import Nav from "@/utils/layout/navbar";
 import axios from "axios";
 import { Channel, Response } from "../types/types";
+import CreateChannel from "./create";
 
 export default function Channel() {
   const [response, setResponse] = useState<Response>();
+  const [modalOpen, setModalOpen] = useState(false);
+  const close = () => {setModalOpen(false)};
+  const open = () => {setModalOpen(true)};
 
   useEffect(() => {
     getData();
@@ -48,9 +52,9 @@ export default function Channel() {
       <header>
         <Nav />
       </header>
-      <div className="profil-nav">
         <div>
             {response && response.channels && response.channels.map((channel) => (
+            <div className="profil-nav" onClick={close}>
               <div className="container">
                 <div className="container-img">
                   <img src="/images/avatar.jpg" alt="Avatar" />
@@ -62,15 +66,14 @@ export default function Channel() {
                 <h3>{`owner name: ${channel.owner.name}`}</h3>
                 </div>
               </div>
+            </div>
             ))}
         </div>
         <div className="welcoming">
             <h1>Welcome to my channel</h1>
-            <p>
-              Becomming a friends ...
-            </p>
+            <button onClick={open}>Wanna create new Channel ?</button>
+        {modalOpen && <CreateChannel handleClose={close}/>}
         </div>
-      </div>
     </div>
   );
 }

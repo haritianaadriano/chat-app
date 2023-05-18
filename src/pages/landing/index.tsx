@@ -61,8 +61,8 @@ export default function Home(){
                 </div>
                 <div className="container">
                     <div className="cookieCard">
-                        <p className="cookieHeading">Meet new person.</p>
-                        <p className="cookieDescription">Choose who can be your friend ...</p>
+                        <p className="cookieHeading">View profile.</p>
+                        <p className="cookieDescription">Let people know who you are ...</p>
                     </div>
                     <div className="cookieCard" onClick={chat}>
                         <p className="cookieHeading">Let's chat.</p>
