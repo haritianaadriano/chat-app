@@ -16,3 +16,19 @@ export type Response = {
     status: boolean,
     channels: [Channel]
 }
+
+export type User = {
+    status: boolean,
+    user: {
+        id: number,
+        email: String,
+        name: String,
+        googleId: any,
+        bio: String,
+        status: any,
+        createdAt: String,
+        updatedAt: String,
+        deletedAt: any,
+        token: any
+    }
+}

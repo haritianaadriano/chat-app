@@ -14,17 +14,6 @@ export default function Channel() {
     getData();
   }, []);
 
-  function getChannelByUserId(channels: Array<Channel>) {
-    const ownerId = sessionStorage.getItem("id");
-    if (ownerId === null) {
-      return [];
-    }
-    const ownerIdNumber = parseInt(ownerId, 10);
-    return channels.filter((channel) => {
-      return channel.ownerId === ownerIdNumber;
-    });
-  }
-
   function getData() {
     axios
       .get("http://localhost:8080/channels", {
@@ -54,13 +43,13 @@ export default function Channel() {
       </header>
         <div>
             {response && response.channels && response.channels.map((channel) => (
-            <div className="profil-nav" onClick={close}>
+            <div className="channel-nav" onClick={close}>
               <div className="container">
                 <div className="container-img">
                   <img src="/images/avatar.jpg" alt="Avatar" />
                 </div>
                 <div key={channel.id}>
-                  <h3>{`channel: ${channel.owner.name}`}</h3>
+                  <h3>{`channel: ${channel.name}`}</h3>
                 </div>
                 <div>
                 <h3>{`owner name: ${channel.owner.name}`}</h3>

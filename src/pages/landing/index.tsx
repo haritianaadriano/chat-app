@@ -13,6 +13,7 @@ export default function Home(){
     const open = () => {setModalOpen(true)};
     const chat = () => router.push("/landing/chat");
     const channel = () => router.push("/landing/channel");
+    const profil = () => router.push("/landing/profil");
 
     function getData() {
         event?.preventDefault();
@@ -29,7 +30,7 @@ export default function Home(){
               channel();
               return response.data;
             } 
-            else{
+            else if(response.status == 304 || response.status == 301){
               open();
             }
           })
@@ -63,7 +64,7 @@ export default function Home(){
                     </p>
                 </div>
                 <div className="container">
-                    <div className="cookieCard">
+                    <div className="cookieCard" onClick={profil}>
                         <p className="cookieHeading">View profile.</p>
                         <p className="cookieDescription">Let people know who you are ...</p>
                     </div>
