@@ -36,10 +36,10 @@ export default function Profil(){
                 <Nav/>
             </header>
             <div className="profil-nav">
-                <div className="container">
+                <div className="container-prime">
                     <div className="container-img">
                         <img src="/images/avatar.jpg" alt="Avatar" />
-                        <p>{response?.user.bio}</p>
+                        <p>" {response?.user.bio} "</p>
                         <p>{`sign up on: ${response?.user.createdAt}`}</p>
                         <p>{`update on: ${response?.user.updatedAt}`}</p>
                     </div>

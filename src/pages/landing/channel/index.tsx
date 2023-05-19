@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import Nav from "@/utils/layout/navbar";
 import axios from "axios";
-import { Channel, Response } from "../types/types";
+import { Channel, ResponseChannel } from "../types/types";
 import CreateChannel from "./create";
 
 export default function Channel() {
-  const [response, setResponse] = useState<Response>();
+  const [response, setResponse] = useState<ResponseChannel>();
   const [modalOpen, setModalOpen] = useState(false);
   const close = () => {setModalOpen(false)};
   const open = () => {setModalOpen(true)};
@@ -44,7 +44,7 @@ export default function Channel() {
         <div>
             {response && response.channels && response.channels.map((channel) => (
             <div className="channel-nav" onClick={close}>
-              <div className="container">
+              <div className="container-prime">
                 <div className="container-img">
                   <img src="/images/avatar.jpg" alt="Avatar" />
                 </div>

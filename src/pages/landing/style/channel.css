@@ -35,7 +35,7 @@ img{
     height: 100%;
     width: 100%;
 }
-.container {
+.container-prime {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

@@ -11,7 +11,7 @@ const Nav: React.FC = () => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container">
+      <div className="container-prime">
         <div
           className="collapse navbar-collapse justify-content-center"
           id="navbarSupportedContent"

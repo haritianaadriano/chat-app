@@ -12,7 +12,7 @@ export type Channel = {
         }
 }
 
-export type Response = {
+export type ResponseChannel = {
     status: boolean,
     channels: [Channel]
 }
@@ -31,4 +31,19 @@ export type User = {
         deletedAt: any,
         token: any
     }
+}
+
+export type Message = {
+    id: number,
+    senderId: number,
+    channelId: number,
+    recipientId: any,
+    content: String,
+    updatedAt: String,
+    createdAt: String
+}   
+
+export type ResponseMessage = {
+    status: boolean,
+    messages: [Message]
 }

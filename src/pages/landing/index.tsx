@@ -63,7 +63,7 @@ export default function Home(){
                         Getting started with ...
                     </p>
                 </div>
-                <div className="container">
+                <div className="container-prime">
                     <div className="cookieCard" onClick={profil}>
                         <p className="cookieHeading">View profile.</p>
                         <p className="cookieDescription">Let people know who you are ...</p>
