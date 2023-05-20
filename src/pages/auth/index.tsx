@@ -1,4 +1,4 @@
-import AuthentificationFailed from "@/utils/modals/login";
+import AuthentificationFailed from "@/utils/ui/modals/login";
 import axios from "axios";
 import { channel } from "diagnostics_channel";
 import { useRouter } from "next/router";

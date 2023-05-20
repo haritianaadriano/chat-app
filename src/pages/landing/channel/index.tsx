@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Nav from "@/utils/layout/navbar";
+import Nav from "@/utils/ui/layout/navbar";
 import axios from "axios";
-import { Channel, ResponseChannel } from "../types/types";
+import { Channel, ResponseChannel } from "../../../utils/types/types";
 import CreateChannel from "./create";
 
 export default function Channel() {
@@ -11,7 +11,7 @@ export default function Channel() {
   const open = () => {setModalOpen(true)};
 
   useEffect(() => {
-    getData();
+    setInterval(getData, 1000);
   }, []);
 
   function getData() {

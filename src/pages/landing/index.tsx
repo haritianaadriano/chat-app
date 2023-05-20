@@ -1,5 +1,5 @@
-import Nav from "@/utils/layout/navbar";
-import HandleError from "@/utils/modals/errorHandling";
+import Nav from "@/utils/ui/layout/navbar";
+import HandleError from "@/utils/ui/modals/errorHandling";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";

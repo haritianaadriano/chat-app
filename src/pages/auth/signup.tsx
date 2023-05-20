@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import axios from "axios";
-import CreatedSuccessfully from "@/utils/modals/signup";
+import CreatedSuccessfully from "@/utils/ui/modals/signup";
 
 export default function SignUp() {
   const router = useRouter();

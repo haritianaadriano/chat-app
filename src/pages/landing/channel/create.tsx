@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Backdrop from "@/utils/backdrop/backdrop";
+import Backdrop from "@/utils/ui/backdrop/backdrop";
 import axios from "axios";
-import HandleError from "@/utils/modals/errorHandling";
-import HandleSuccess from "@/utils/modals/successHandling";
+import HandleError from "@/utils/ui/modals/errorHandling";
+import HandleSuccess from "@/utils/ui/modals/successHandling";
 import { useRouter } from "next/router";
 
 export default function CreateChannel({ handleClose }: any) {

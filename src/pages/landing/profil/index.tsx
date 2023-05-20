@@ -1,7 +1,7 @@
-import Nav from "@/utils/layout/navbar";
+import Nav from "@/utils/ui/layout/navbar";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { User } from "../types/types";
+import { User } from "../../../utils/types/types";
 
 export default function Profil(){
     const [response, setResponse] = useState<User>();

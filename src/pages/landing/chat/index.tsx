@@ -1,6 +1,6 @@
-import Nav from "@/utils/layout/navbar";
+import Nav from "@/utils/ui/layout/navbar";
 import { useEffect, useState } from "react";
-import { ResponseMessage } from "../types/types";
+import { ResponseMessage } from "../../../utils/types/types";
 import axios from "axios";
 
 export default function Chat(){

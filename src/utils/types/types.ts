@@ -47,3 +47,8 @@ export type ResponseMessage = {
     status: boolean,
     messages: [Message]
 }
+
+export type Login = {
+    email: String,
+    password: String
+}
