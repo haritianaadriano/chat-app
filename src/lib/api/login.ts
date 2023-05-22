@@ -6,7 +6,7 @@ export function sendLogin(data: Login){
     const router = useRouter();
 
         axios
-          .post("http://localhost:8080/users/login", data, {
+          .post(`${process.env.BACKEND_BASE_URL}/users/login`, data, {
             headers: {
               "Content-Type": "application/json"
             }

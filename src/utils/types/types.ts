@@ -5,7 +5,7 @@ export interface Channel {
         createdAt?: string,
         updatedAt?: string,
         ownerId?: number,
-        owner?: {
+        owner: {
             id?: String,
             name?: string,
             email?: string
@@ -19,7 +19,7 @@ export interface ResponseChannel {
 
 export interface User {
     status?: boolean,
-    user?: {
+    user: {
         id?: number,
         email?: String,
         name?: String,

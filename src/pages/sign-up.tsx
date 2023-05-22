@@ -46,7 +46,7 @@ export default function SignUp() {
 
   function logIn(){
     event?.preventDefault();
-    router.push("/auth");
+    router.push("/");
   }
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {

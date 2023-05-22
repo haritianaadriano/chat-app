@@ -1,9 +1,15 @@
-import { moveToSignup } from "@/routing/login";
 import { LoginProps } from "@/utils/types/propsTypes";
 import AuthentificationFailed from "@/utils/ui/modals/login";
+import { useRouter } from "next/router";
 
 export default function Login({modalOpen, setModalOpen, sendLogin}: LoginProps){
+    const router = useRouter();
     const close = () => {setModalOpen(false)};
+    
+    const moveToSignUp = () => {
+        event?.preventDefault();
+        router.push("/sign-up");
+    }
     return (
         <div className="wrapper fadeInDow">
             <div 
@@ -29,7 +35,7 @@ export default function Login({modalOpen, setModalOpen, sendLogin}: LoginProps){
                     <button className="fadeIn fourth" onClick={sendLogin}>
                         LOG IN
                     </button>
-                    <button onClick={moveToSignup} className="fadeIn fourth">
+                    <button onClick={moveToSignUp} className="fadeIn fourth">
                         SIGN UP
                     </button>
                 {modalOpen && <AuthentificationFailed handleClose={close} modalOpen={modalOpen}/>}
