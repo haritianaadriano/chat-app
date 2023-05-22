@@ -5,7 +5,8 @@ import Cookies from "js-cookie";
 
 export function sendLogin(
   data: any,
-  setModalOpen: React.Dispatch<SetStateAction<boolean>>
+  setModalOpen: React.Dispatch<SetStateAction<boolean>>,
+  moveToHome: any
 ) {
   axios
     .post(`${BACKEND_BASE_URL}/users/login`, data, {
@@ -16,6 +17,7 @@ export function sendLogin(
     .then((response) => {
       if (response.status >= 200 && response.status < 300) {
         console.log(response);
+        moveToHome();
         return response.data;
       }
     })

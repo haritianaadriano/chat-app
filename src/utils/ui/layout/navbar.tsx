@@ -1,13 +1,11 @@
 import { useRouter } from "next/router";
-import React, { MouseEvent } from "react";
 
 const Nav: React.FC = () => {
   const router = useRouter();
 
   const home = () => router.push("/landing");
-  const channel = () => router.push("/landing/channel");
-  const chat = () => router.push("/landing/chat");
-  const profil = () => router.push("/landing/profil");
+  const channel = () => router.push("/channel");
+  const profil = () => router.push("/profil");
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -25,11 +23,6 @@ const Nav: React.FC = () => {
             <li className="nav-item">
               <a className="nav-link" href="#" onClick={channel}>
                 Channel
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#" onClick={chat}>
-                Chat
               </a>
             </li>
             <li className="nav-item">

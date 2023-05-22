@@ -1,19 +1,23 @@
 export interface Channel {
-    id?: number;
+  id?: number;
+  name?: string;
+  type?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  ownerId?: number;
+  owner: {
+    id?: String;
     name?: string;
-    type?: string;
-    createdAt?: string;
-    updatedAt?: string;
-    ownerId?: number;
-    owner: {
-      id?: String;
-      name?: string;
-      email?: string;
-    };
-  }
-  
-  export interface ResponseChannel {
-    status?: boolean;
-    channels?: [Channel];
-  }
-  
+    email?: string;
+  };
+}
+
+export interface ResponseChannel {
+  status?: boolean;
+  channels?: [Channel];
+}
+
+export interface CreateChannel {
+  name?: String;
+  type?: String;
+}

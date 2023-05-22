@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
-import Login from "@/components/loginComponent";
+import Login from "@/components/auth/loginComponent";
 import { sendLogin } from "@/lib/api/loginApi";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { LoginType } from "@/utils/types/User";
 import { useRouter } from "next/router";
 
@@ -11,12 +11,16 @@ export default function Home() {
   const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
 
+  function moveToHome(){
+    router.push("/landing");
+  }
+
   function moveToSignup() {
     router.push("/sign-up");
   }
 
   function sendLoginData(data: LoginType) {
-    sendLogin(data, setModalOpen);
+    sendLogin(data, setModalOpen, moveToHome);
   }
 
   return (

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { Signup } from "@/components/signupComponent";
+import { Signup } from "@/components/auth/signupComponent";
 import { CreateUser } from "@/utils/types/User";
 import { sendSignup } from "@/lib/api/signupApi";
 
