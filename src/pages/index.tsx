@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import Login from "@/components/loginComponent";
 import { sendLogin } from "@/lib/api/loginApi";
 import React, { useEffect, useState } from "react";
-import { LoginType } from "@/utils/types/types";
+import { LoginType } from "@/utils/types/User";
 import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,7 +16,7 @@ export default function Home() {
   }
 
   function sendLoginData(data: LoginType) {
-    sendLogin( data, setModalOpen );
+    sendLogin(data, setModalOpen);
   }
 
   return (

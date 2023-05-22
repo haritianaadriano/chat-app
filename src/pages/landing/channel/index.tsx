@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 import Nav from "@/utils/ui/layout/navbar";
 import axios from "axios";
-import { Channel, ResponseChannel } from "../../../utils/types/types";
+import { Channel, ResponseChannel } from "../../../utils/types/User";
 import CreateChannel from "./create";
 
 export default function Channel() {
   const [response, setResponse] = useState<ResponseChannel>();
   const [modalOpen, setModalOpen] = useState(false);
-  const close = () => {setModalOpen(false)};
-  const open = () => {setModalOpen(true)};
+  const close = () => {
+    setModalOpen(false);
+  };
+  const open = () => {
+    setModalOpen(true);
+  };
 
   useEffect(() => {
     setInterval(getData, 1000);
@@ -41,8 +45,10 @@ export default function Channel() {
       <header>
         <Nav />
       </header>
-        <div>
-            {response && response.channels && response.channels.map((channel) => (
+      <div>
+        {response &&
+          response.channels &&
+          response.channels.map((channel) => (
             <div className="channel-nav" onClick={close}>
               <div className="container-prime">
                 <div className="container-img">
@@ -52,17 +58,17 @@ export default function Channel() {
                   <h3>{`channel: ${channel.name}`}</h3>
                 </div>
                 <div>
-                <h3>{`owner name: ${channel.owner.name}`}</h3>
+                  <h3>{`owner name: ${channel.owner.name}`}</h3>
                 </div>
               </div>
             </div>
-            ))}
-        </div>
-        <div className="welcoming">
-            <h1>Welcome to my channel</h1>
-            <button onClick={open}>Wanna create new Channel ?</button>
-        {modalOpen && <CreateChannel handleClose={close}/>}
-        </div>
+          ))}
+      </div>
+      <div className="welcoming">
+        <h1>Welcome to my channel</h1>
+        <button onClick={open}>Wanna create new Channel ?</button>
+        {modalOpen && <CreateChannel handleClose={close} />}
+      </div>
     </div>
   );
 }

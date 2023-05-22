@@ -1,5 +1,5 @@
 import { LoginProps } from "@/utils/types/propsTypes";
-import { LoginType } from "@/utils/types/types";
+import { LoginType } from "@/utils/types/User";
 import AuthentificationFailed from "@/utils/ui/modals/login";
 import { useForm } from "react-hook-form";
 
