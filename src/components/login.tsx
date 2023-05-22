@@ -1,15 +1,19 @@
+import { moveToSignUp } from "@/routing/routing";
 import { LoginProps } from "@/utils/types/propsTypes";
 import AuthentificationFailed from "@/utils/ui/modals/login";
-import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
 
-export default function Login({modalOpen, setModalOpen, sendLogin, setData}: LoginProps){
-    const router = useRouter();
+export default function Login({modalOpen, setModalOpen, sendLogin, setData, setInputCompleted}: LoginProps){
+    const {register, handleSubmit, watch} = useForm();
     const close = () => {setModalOpen(false)};
-    
-    const moveToSignUp = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        event.preventDefault();
-        router.push("/sign-up");
-    }
+
+    useEffect(() => {
+        const email = watch("email");
+        const password = watch("password");
+        const isInputCompleted = email && password;
+        setInputCompleted(isInputCompleted);
+      }, [watch, setInputCompleted]);
     
     return (
         <div className="wrapper fadeInDow">
@@ -18,20 +22,20 @@ export default function Login({modalOpen, setModalOpen, sendLogin, setData}: Log
                 onClick={close}
             >
                 <h2 className="active">Sign in</h2>
-                <form>
+                <form onSubmit={handleSubmit(setData)}>
                     <input
                         type="text"
                         id="email"
                         className="fadeIn second"
-                        name="email"
                         placeholder="email"
+                        {...register("email")}
                     />
                     <input
-                        type="text"
+                        type="password"
                         id="password"
                         className="fadeIn third"
-                        name="password"
                         placeholder="password"
+                        {...register("password")}
                     />
                     <button className="fadeIn fourth" onClick={sendLogin}>
                         LOG IN

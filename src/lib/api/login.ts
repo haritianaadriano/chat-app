@@ -1,9 +1,7 @@
-import { Login } from "@/utils/types/types";
 import axios from "axios";
 import { useRouter } from "next/router";
 
-export function sendLogin(data: Login, event: React.MouseEvent<HTMLButtonElement, MouseEvent>){
-  event.preventDefault();
+export function sendLogin(data: any){
     const router = useRouter();
 
         axios
