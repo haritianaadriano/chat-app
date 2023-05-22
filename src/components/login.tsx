@@ -2,14 +2,15 @@ import { LoginProps } from "@/utils/types/propsTypes";
 import AuthentificationFailed from "@/utils/ui/modals/login";
 import { useRouter } from "next/router";
 
-export default function Login({modalOpen, setModalOpen, sendLogin}: LoginProps){
+export default function Login({modalOpen, setModalOpen, sendLogin, setData}: LoginProps){
     const router = useRouter();
     const close = () => {setModalOpen(false)};
     
-    const moveToSignUp = () => {
-        event?.preventDefault();
+    const moveToSignUp = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        event.preventDefault();
         router.push("/sign-up");
     }
+    
     return (
         <div className="wrapper fadeInDow">
             <div 

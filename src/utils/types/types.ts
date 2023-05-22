@@ -48,7 +48,7 @@ export interface ResponseMessage {
     messages?: [Message]
 }
 
-export interface Login {
+export interface LoginType {
     email?: String,
     password?: String
 }
