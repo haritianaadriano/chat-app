@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { sendChannel } from "../../lib/api/channelApi";
 
-export default function CreateChannel({
+export default function CreateChannelComponent({
   handleClose,
   dropIn,
   modalOpen,
@@ -56,6 +56,7 @@ export default function CreateChannel({
               id="members"
               className="fadeIn fourth"
               placeholder="members"
+              {...register("members")}
             />
             <button type="submit">Create Channel</button>
           </form>

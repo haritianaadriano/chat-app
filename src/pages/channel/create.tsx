@@ -1,3 +1,4 @@
+import CreateChannelComponent from "@/components/channel/createChannelComponent";
 import Nav from "@/utils/ui/layout/navbar";
 import { useState } from "react";
 
@@ -34,7 +35,7 @@ export default function CreateChannel({ handleClose }: any) {
       <header>
         <Nav />
       </header>
-      <CreateChannel
+      <CreateChannelComponent
         handleClose={handleClose}
         dropIn={dropIn}
         modalOpen={modalOpen}
