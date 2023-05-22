@@ -1,7 +1,6 @@
 import { LoginProps } from "@/utils/types/propsTypes";
 import { LoginType } from "@/utils/types/types";
 import AuthentificationFailed from "@/utils/ui/modals/login";
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 export default function Login({
@@ -10,7 +9,7 @@ export default function Login({
   sendLoginData,
   router,
 }: LoginProps) {
-  const { register, handleSubmit, watch } = useForm();
+  const { register, handleSubmit } = useForm();
   const close = () => {
     setModalOpen(false);
   };
