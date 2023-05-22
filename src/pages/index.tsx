@@ -1,30 +1,31 @@
 import { Inter } from 'next/font/google'
 import Login from "@/components/login";
-import { sendLogin } from "@/lib/api/login";
+import { sendLogin } from "@/lib/api/loginApi";
 import React, { useEffect, useState } from "react";
 import { LoginType } from '@/utils/types/types';
+import { useRouter } from 'next/router';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
-  const [data, setData] = useState<LoginType>();
-  const [inputCompleted, setInputCompleted] = useState(false);
 
-  function sendLoginData(){
-    inputCompleted ? sendLogin(data) : ""; 
+  function moveToSignup(){
+    router.push("/sign-up");
   }
 
-  useEffect(sendLoginData, []);
+  function sendLoginData(data: LoginType){
+    sendLogin(data); 
+  }
 
   return (
     <div className="wrapper fadeInDow">
       <Login
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}
-        sendLogin={sendLogin}
-        setData={setData}
-        setInputCompleted={setInputCompleted}
+        sendLoginData={sendLoginData}
+        router={moveToSignup}
       />
     </div>
   )

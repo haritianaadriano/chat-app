@@ -1,9 +1,6 @@
 import axios from "axios";
-import { useRouter } from "next/router";
 
 export function sendLogin(data: any){
-    const router = useRouter();
-
         axios
           .post(`${process.env.BACKEND_BASE_URL}/users/login`, data, {
             headers: {
@@ -22,7 +19,6 @@ export function sendLogin(data: any){
             sessionStorage.setItem("id", data.user.id)
             console.log(data.user);
             
-            router.push("/landing");
           })
           .catch(error => {
             console.error(error)
