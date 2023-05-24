@@ -21,6 +21,8 @@ export interface ChannelProps {
 }
 
 export interface CreateChannelProps {
+  data: any
+  setData: any
   setUsersOptions?: any
   users?: any
   usersAdded?: any

@@ -38,7 +38,8 @@ export default function EditChannel({ handleClose }: any) {
     }
   }
 
-  function handleClick() {
+  function handleClick(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     editChannel(data, openFailModal, openFailModal, Cookies.get("channel_id"));
   }
 
@@ -59,6 +60,15 @@ export default function EditChannel({ handleClose }: any) {
     }
     return UsersOptions;
   }
+
+  useEffect(() => {
+    setData({
+      ...data,
+      channelId: parseInt(Cookies.get("channel_id") || "0", 10)
+    });
+  }, []);
+  
+  
 
   useEffect(() => {
     getUsers(setUsers);
@@ -92,6 +102,8 @@ export default function EditChannel({ handleClose }: any) {
   return (
     <div>
       <EditChannelComponent
+        data={data}
+        setData={setData}
         usersAdded={usersAdded}
         UsersSelected={UsersSelected}
         setUsersAdded={setUsersAdded}

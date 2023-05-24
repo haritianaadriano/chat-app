@@ -17,7 +17,9 @@ export default function EditChannelComponent({
   handleClick,
   usersOptions,
   usersAdded,
-  UsersSelected
+  UsersSelected,
+  setData,
+  data,
 }: CreateChannelProps) {
   const handleChange = async (selected: any, selectaction: any) => {
     const { action } = selectaction;
@@ -27,7 +29,10 @@ export default function EditChannelComponent({
       console.log("remove");
     }
     setUsersAdded(selected);
-    UsersSelected(usersAdded);
+    setData({
+      ...data,
+      members: UsersSelected(usersAdded),
+    });
   };
 
   return (
@@ -58,7 +63,7 @@ export default function EditChannelComponent({
               placeholder="Users"
             />
 
-            <button type="submit">Create Channel</button>
+            <button type="submit">Edit Channel</button>
           </form>
         </motion.div>
         {modalOpen && (
