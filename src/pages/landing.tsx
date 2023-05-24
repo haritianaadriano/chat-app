@@ -10,6 +10,7 @@ export default function Home() {
   const moveToProfil = () => {
     router.push("/profil");
   };
+  console.log(Cookies.get("token"));
 
   return (
     <div>

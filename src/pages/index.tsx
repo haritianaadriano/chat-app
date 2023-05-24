@@ -4,6 +4,7 @@ import { sendLogin } from "@/lib/api/loginApi";
 import React, { useState } from "react";
 import { LoginType } from "@/utils/types/User";
 import { useRouter } from "next/router";
+import Cookies from "js-cookie";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,8 @@ export default function Home() {
   function sendLoginData(data: LoginType) {
     sendLogin(data, setModalOpen, moveToHome);
   }
+  console.log(Cookies.get("token"));
+  
 
   return (
     <div className="wrapper fadeInDow">

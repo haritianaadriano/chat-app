@@ -1,11 +1,16 @@
 export interface Message {
     id?: number;
-    senderId?: number;
-    channelId?: number;
-    recipientId?: any;
-    content?: String;
-    updatedAt?: String;
-    createdAt?: String;
+    content?: String
+    createdAt?: String
+    updatedAt?: String
+    senderId?: String
+    recipiendtId?: any
+    channelId?: number
+    sender?: {
+      id?: number
+      name?: String
+      email?: String
+    }
   }
   
   export interface ResponseMessage {

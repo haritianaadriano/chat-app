@@ -4,15 +4,19 @@ import { ResponseChannel } from "@/utils/types/Channel";
 import { getChannels } from "@/lib/api/channelApi";
 import ChannelComponent from "@/components/channel/channelComponent";
 import { useRouter } from "next/router";
+import Cookies from "js-cookie";
 
 export default function Channel() {
   const router = useRouter();
-  const moveToCreateChannel = () => {router.push("/channel/create")};
+  const moveToCreateChannel = () => {
+    router.push("/channel/create");
+  };
+  const movetToChannelChat = () => {
+    router.push(`/channel/${Cookies.get("channel_id")}`);
+  };
   const [response, setResponse] = useState<ResponseChannel>();
   useEffect(() => {
-    setInterval(() => {
-      getChannels(setResponse);
-    }, 1000);
+    getChannels(setResponse);
   }, []);
 
   return (
@@ -21,11 +25,16 @@ export default function Channel() {
         <Nav />
       </header>
       <div>
-        <ChannelComponent response={response} />
+        <ChannelComponent
+          response={response}
+          movetToChannelChat={movetToChannelChat}
+        />
       </div>
       <div className="welcoming">
         <h1>Welcome to my channel</h1>
-        <button onClick={moveToCreateChannel}>Wanna create new Channel ?</button>
+        <button onClick={moveToCreateChannel}>
+          Wanna create new Channel ?
+        </button>
       </div>
     </div>
   );

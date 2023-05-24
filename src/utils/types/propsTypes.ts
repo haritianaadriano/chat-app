@@ -1,5 +1,5 @@
 import { ResponseChannel } from "./Channel";
-import { User } from "./User";
+import { ResponseMessage } from "./Message";
 
 export interface LoginProps {
   modalOpen: boolean;
@@ -28,4 +28,8 @@ export interface CreateChannelProps {
   openFailModal: any;
   closeSuccessModal: any;
   closeFailModal: any;
+}
+
+export interface MessageProps {
+  response: ResponseMessage
 }

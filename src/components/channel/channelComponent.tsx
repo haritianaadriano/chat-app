@@ -1,13 +1,18 @@
 import { Channel } from "@/utils/types/Channel";
-import { ChannelProps } from "@/utils/types/propsTypes";
+import Cookies from "js-cookie";
 
-export default function ChannelComponent({ response }: any) {
+export default function ChannelComponent({
+  response,
+  movetToChannelChat,
+}: any) {
   return (
     <div>
       {response &&
         response.channels?.map((channel: Channel) => {
+          Cookies.set("channel_id", channel.id?.toString())
+          Cookies.set("channel_name", channel.name);
           return (
-            <div className="channel-nav" onClick={close}>
+            <div className="channel-nav" onClick={movetToChannelChat}>
               <div className="container-prime">
                 <div className="container-img">
                   <img src="/images/avatar.jpg" alt="Avatar" />
