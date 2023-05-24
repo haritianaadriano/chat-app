@@ -1,7 +1,9 @@
 import { CreateUser } from "@/utils/types/User";
 import { SignupProps } from "@/utils/types/propsTypes";
 import CreatedSuccessfully from "@/utils/ui/modals/signup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import * as yup from "yup";
 
 export function Signup({
   modalOpen,
@@ -9,11 +11,20 @@ export function Signup({
   setModalOpen,
   sendSignUpData,
 }: SignupProps) {
-  const { register, handleSubmit } = useForm();
+  const schemas = yup.object().shape({
+    email: yup.string().email().required(),
+    password: yup.string().required(),
+    name: yup.string().required(),
+  });
+
+  const { register, handleSubmit, formState: {errors} } = useForm({
+    resolver: yupResolver(schemas),
+  });
+
   const close = () => {
     setModalOpen(false);
   };
-  
+
   const onSubmit = (data: CreateUser) => {
     console.log(data);
     sendSignUpData(data);
@@ -32,6 +43,7 @@ export function Signup({
             placeholder="email"
             {...register("email")}
           />
+          <p className="p-error">{String(errors.email?.message)}</p>
           <input
             type="text"
             id="password"
@@ -39,6 +51,7 @@ export function Signup({
             placeholder="password"
             {...register("password")}
           />
+          <p className="p-error">{String(errors.password?.message)}</p>
           <input
             type="text"
             id="name"
@@ -46,7 +59,10 @@ export function Signup({
             placeholder="name"
             {...register("name")}
           />
-          <button type="submit" className="fadeIn fourth">SIGN UP</button>
+          <p className="p-error">{String(errors.name?.message)}</p>
+          <button type="submit" className="fadeIn fourth">
+            SIGN UP
+          </button>
           <button className="fadeIn fourth" onClick={router}>
             LOG IN
           </button>

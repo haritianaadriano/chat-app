@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
+.p-error{
+  color: red;
+}
+
 /* BASIC */
 
 html{

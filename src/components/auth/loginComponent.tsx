@@ -2,6 +2,8 @@ import { LoginProps } from "@/utils/types/propsTypes";
 import { LoginType } from "@/utils/types/User";
 import AuthentificationFailed from "@/utils/ui/modals/login";
 import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 export default function Login({
   modalOpen,
@@ -9,7 +11,13 @@ export default function Login({
   sendLoginData,
   router,
 }: LoginProps) {
-  const { register, handleSubmit } = useForm();
+  const schemas = yup.object().shape({
+    email: yup.string().email().required(),
+  });
+
+  const { register, handleSubmit, formState: {errors} } = useForm({
+    resolver: yupResolver(schemas),
+  });
   const close = () => {
     setModalOpen(false);
   };
@@ -31,6 +39,7 @@ export default function Login({
             placeholder="email"
             {...register("email")}
           />
+          <p className="p-error">{String(errors.email?.message)}</p>
           <input
             type="password"
             id="password"
