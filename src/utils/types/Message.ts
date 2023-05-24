@@ -17,4 +17,10 @@ export interface Message {
     status?: boolean;
     messages?: [Message];
   }
+
+  export interface CreateMessage {
+    channelId?: number
+    recipientId?: number
+    content?: String
+  }
   

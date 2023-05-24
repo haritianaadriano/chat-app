@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 
 const Nav: React.FC = () => {
@@ -6,6 +7,10 @@ const Nav: React.FC = () => {
   const home = () => router.push("/landing");
   const channel = () => router.push("/channel");
   const profil = () => router.push("/profil");
+  const logout = () => {
+    Cookies.set("token", "");
+    router.push("/");
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -31,6 +36,11 @@ const Nav: React.FC = () => {
               </a>
             </li>
           </ul>
+        </div>
+        <div>
+          <button className="logout" onClick={logout}>
+            logout
+          </button>
         </div>
       </div>
     </nav>

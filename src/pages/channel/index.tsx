@@ -8,6 +8,16 @@ import Cookies from "js-cookie";
 
 export default function Channel() {
   const router = useRouter();
+
+  if (Cookies.get("token") == null) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
   const moveToCreateChannel = () => {
     router.push("/channel/create");
   };

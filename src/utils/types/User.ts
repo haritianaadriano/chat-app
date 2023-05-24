@@ -14,6 +14,16 @@ export interface User {
   };
 }
 
+export interface Users {
+  status?: boolean
+  users: [{
+    id: number
+    name: String
+    email?: String
+    bio?: String
+  }]
+}
+
 export interface LoginType {
   email?: String;
   password?: String;

@@ -8,7 +8,7 @@ export default function SignUp() {
   const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
 
-  function moveToLogin(){
+  function moveToLogin() {
     router.push("/");
   }
 

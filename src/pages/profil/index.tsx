@@ -3,9 +3,18 @@ import { useEffect, useState } from "react";
 import { User } from "../../utils/types/User";
 import { getProfil } from "@/lib/api/profileApi";
 import Profil from "@/components/profil/profilComponent";
+import Cookies from "js-cookie";
 
 export default function ProfilHome() {
   const [response, setResponse] = useState<User>();
+  if (Cookies.get("token") == null) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
 
   useEffect(() => getProfil(setResponse), []);
 
@@ -15,9 +24,7 @@ export default function ProfilHome() {
         <Nav />
       </header>
       <div className="profil-nav">
-        <Profil
-          response={response}
-        />
+        <Profil response={response} />
       </div>
     </div>
   );

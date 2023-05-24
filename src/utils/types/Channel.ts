@@ -21,3 +21,13 @@ export interface CreateChannel {
   name?: String;
   type?: String;
 }
+
+export interface EditChannel{
+  channelId?: number 
+  members?: [number]
+}
+
+export interface UserOption {
+  label: String
+  value: number
+}

@@ -11,3 +11,12 @@
     color: #022536;
     font-weight: bold;
 }
+
+.logout{
+    background-color: #e9640c !important;
+    color: #022536 !important;
+    margin: auto;
+    border-radius: 12px;
+    align-items: center;
+    font-weight: bold;
+}

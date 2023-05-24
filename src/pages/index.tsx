@@ -12,7 +12,7 @@ export default function Home() {
   const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
 
-  function moveToHome(){
+  function moveToHome() {
     router.push("/landing");
   }
 
@@ -24,7 +24,6 @@ export default function Home() {
     sendLogin(data, setModalOpen, moveToHome);
   }
   console.log(Cookies.get("token"));
-  
 
   return (
     <div className="wrapper fadeInDow">

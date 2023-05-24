@@ -1,14 +1,25 @@
 import { Message } from "@/utils/types/Message";
+import { ChannelMessageProps } from "@/utils/types/propsTypes";
 import Nav from "@/utils/ui/layout/navbar";
 import Cookies from "js-cookie";
 
-export default function ChannelMessageComponent({ response }: any) {
+export default function ChannelMessageComponent({
+  response,
+  setMessageContent,
+  handleClick,
+  moveToEditChannel
+}: ChannelMessageProps) {  
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setMessageContent(event.target.value);
+  }
+
   return (
     <div>
       <header>
         <Nav />
       </header>
       <h1>{Cookies.get("channel_name")}</h1>
+      <button onClick={moveToEditChannel}>edit</button>
       <div>
         {response &&
           response.messages?.map((message: Message) => {
@@ -23,6 +34,10 @@ export default function ChannelMessageComponent({ response }: any) {
               </>
             );
           })}
+        <div>
+          <input onChange={handleChange} />
+          <button onClick={handleClick}>send</button>
+        </div>
       </div>
     </div>
   );
