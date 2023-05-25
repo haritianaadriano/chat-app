@@ -1,6 +1,6 @@
 import MessageComponent from "@/components/message/messageComponent";
 import { getMessageByUser } from "@/lib/api/messageApi";
-import { ResponseMessage } from "@/utils/types/Message";
+import { ResponseMessage } from "@/types/Message";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 

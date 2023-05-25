@@ -1,6 +1,6 @@
 import ChannelMessageComponent from "@/components/channel/channelMessageComponent";
 import { getMessageByChannelId, sendMessage } from "@/lib/api/messageApi";
-import { CreateMessage, ResponseMessage } from "@/utils/types/Message";
+import { CreateMessage, ResponseMessage } from "@/types/Message";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";

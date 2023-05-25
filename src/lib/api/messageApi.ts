@@ -1,4 +1,4 @@
-import { CreateMessage, ResponseMessage } from "@/utils/types/Message";
+import { CreateMessage, ResponseMessage } from "@/types/Message";
 import axios from "axios";
 import { SetStateAction } from "react";
 import { BACKEND_BASE_URL } from "../../../env";

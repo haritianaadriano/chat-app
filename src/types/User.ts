@@ -1,3 +1,10 @@
+export interface UpdatedUser {
+  name: String;
+  oldPasswrd: String;
+  password: String;
+  bio: String;
+}
+
 export interface User {
   status?: boolean;
   user: {
@@ -15,13 +22,15 @@ export interface User {
 }
 
 export interface Users {
-  status?: boolean
-  users: [{
-    id: number
-    name: String
-    email?: String
-    bio?: String
-  }]
+  status?: boolean;
+  users: [
+    {
+      id: number;
+      name: String;
+      email?: String;
+      bio?: String;
+    }
+  ];
 }
 
 export interface LoginType {
@@ -32,6 +41,6 @@ export interface LoginType {
 export interface CreateUser {
   email?: String;
   password?: String;
-  name?: String
-  bio?: String
+  name?: String;
+  bio?: String;
 }

@@ -2,6 +2,11 @@ import { SetStateAction } from "react";
 import { EditChannel, ResponseChannel, UserOption } from "./Channel";
 import { ResponseMessage } from "./Message";
 
+export interface EditProfilProps {
+  sendUpdatedProfil: any;
+  modalOpen: boolean;
+}
+
 export interface LoginProps {
   modalOpen: boolean;
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -21,14 +26,14 @@ export interface ChannelProps {
 }
 
 export interface EditChannelProps {
-  data: EditChannel
-  setData: React.Dispatch<SetStateAction<EditChannel>>
-  setUsersOptions?: React.Dispatch<SetStateAction<UserOption[]>>
-  users?: UserOption[]
-  usersAdded?: UserOption[]
-  UsersSelected?: any
+  data: EditChannel;
+  setData: React.Dispatch<SetStateAction<EditChannel>>;
+  setUsersOptions?: React.Dispatch<SetStateAction<UserOption[]>>;
+  users?: UserOption[];
+  usersAdded?: UserOption[];
+  UsersSelected?: any;
   setUsersAdded: React.Dispatch<SetStateAction<UserOption[]>>;
-  handleClick?: any
+  handleClick?: any;
   handleClose?: any;
   dropIn?: any;
   modalOpen?: boolean;
@@ -37,12 +42,11 @@ export interface EditChannelProps {
   openFailModal?: any;
   closeSuccessModal?: any;
   closeFailModal?: any;
-  usersOptions?: UserOption[]
+  usersOptions?: UserOption[];
 }
 
-
 export interface CreateChannelProps {
-  handleClick?: any
+  handleClick?: any;
   handleClose?: any;
   dropIn?: any;
   modalOpen?: boolean;
@@ -54,12 +58,12 @@ export interface CreateChannelProps {
 }
 
 export interface MessageProps {
-  response: ResponseMessage
+  response: ResponseMessage;
 }
 
 export interface ChannelMessageProps {
-  response: ResponseMessage | undefined
-  setMessageContent: React.Dispatch<SetStateAction<String | undefined>>
-  handleClick: any
-  moveToEditChannel: any
+  response: ResponseMessage | undefined;
+  setMessageContent: React.Dispatch<SetStateAction<String | undefined>>;
+  handleClick: any;
+  moveToEditChannel: any;
 }

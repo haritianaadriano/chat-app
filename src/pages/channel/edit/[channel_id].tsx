@@ -1,8 +1,8 @@
 import EditChannelComponent from "@/components/channel/editChannelComponent";
 import { editChannel } from "@/lib/api/channelApi";
 import { getUsers } from "@/lib/api/userApi";
-import { EditChannel, UserOption } from "@/utils/types/Channel";
-import { Users } from "@/utils/types/User";
+import { EditChannel, UserOption } from "@/types/Channel";
+import { Users } from "@/types/User";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 
@@ -64,11 +64,9 @@ export default function EditChannel({ handleClose }: any) {
   useEffect(() => {
     setData({
       ...data,
-      channelId: parseInt(Cookies.get("channel_id") || "0", 10)
+      channelId: parseInt(Cookies.get("channel_id") || "0", 10),
     });
   }, []);
-  
-  
 
   useEffect(() => {
     getUsers(setUsers);

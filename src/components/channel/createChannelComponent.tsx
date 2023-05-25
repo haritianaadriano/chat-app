@@ -1,5 +1,5 @@
-import { Channel, CreateChannel } from "@/utils/types/Channel";
-import { CreateChannelProps } from "@/utils/types/propsTypes";
+import { Channel, CreateChannel } from "@/types/Channel";
+import { CreateChannelProps } from "@/types/propsTypes";
 import Backdrop from "@/utils/ui/backdrop/backdrop";
 import HandleError from "@/utils/ui/modals/errorHandling";
 import HandleSuccess from "@/utils/ui/modals/successHandling";
@@ -15,14 +15,12 @@ export default function CreateChannelComponent({
   openSuccessModal,
   openFailModal,
   closeFailModal,
-  closeSuccessModal
+  closeSuccessModal,
 }: CreateChannelProps) {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (
-    data: CreateChannel
-  ) => {
+  const onSubmit = (data: CreateChannel) => {
     console.log(data);
-    sendChannel(data, openSuccessModal,openFailModal);
+    sendChannel(data, openSuccessModal, openFailModal);
   };
   return (
     <div>

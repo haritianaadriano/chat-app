@@ -1,5 +1,5 @@
-import { Message } from "@/utils/types/Message";
-import { ChannelMessageProps } from "@/utils/types/propsTypes";
+import { Message } from "@/types/Message";
+import { ChannelMessageProps } from "@/types/propsTypes";
 import Nav from "@/utils/ui/layout/navbar";
 import Cookies from "js-cookie";
 
@@ -7,8 +7,8 @@ export default function ChannelMessageComponent({
   response,
   setMessageContent,
   handleClick,
-  moveToEditChannel
-}: ChannelMessageProps) {  
+  moveToEditChannel,
+}: ChannelMessageProps) {
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setMessageContent(event.target.value);
   }

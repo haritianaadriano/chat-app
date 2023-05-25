@@ -1,6 +1,6 @@
 import Nav from "@/utils/ui/layout/navbar";
 import { useEffect, useState } from "react";
-import { User } from "../../utils/types/User";
+import { User } from "../../types/User";
 import { getProfil } from "@/lib/api/profileApi";
 import Profil from "@/components/profil/profilComponent";
 import Cookies from "js-cookie";

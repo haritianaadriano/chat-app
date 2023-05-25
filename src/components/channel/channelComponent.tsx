@@ -1,4 +1,4 @@
-import { Channel } from "@/utils/types/Channel";
+import { Channel } from "@/types/Channel";
 import Cookies from "js-cookie";
 
 export default function ChannelComponent({
@@ -9,7 +9,7 @@ export default function ChannelComponent({
     <div>
       {response &&
         response.channels?.map((channel: Channel) => {
-          Cookies.set("channel_id", channel.id?.toString())
+          Cookies.set("channel_id", channel.id?.toString());
           Cookies.set("channel_name", channel.name);
           return (
             <div className="channel-nav" onClick={movetToChannelChat}>

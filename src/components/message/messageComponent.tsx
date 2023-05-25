@@ -1,4 +1,4 @@
-import { Message } from "@/utils/types/Message";
+import { Message } from "@/types/Message";
 import Nav from "@/utils/ui/layout/navbar";
 import Cookies from "js-cookie";
 

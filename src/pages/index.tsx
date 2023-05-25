@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import Login from "@/components/auth/loginComponent";
 import { sendLogin } from "@/lib/api/loginApi";
 import React, { useState } from "react";
-import { LoginType } from "@/utils/types/User";
+import { LoginType } from "@/types/User";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
 

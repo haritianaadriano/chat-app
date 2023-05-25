@@ -1,5 +1,5 @@
-import { CreateUser } from "@/utils/types/User";
-import { SignupProps } from "@/utils/types/propsTypes";
+import { CreateUser } from "@/types/User";
+import { SignupProps } from "@/types/propsTypes";
 import CreatedSuccessfully from "@/utils/ui/modals/signup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
@@ -17,7 +17,11 @@ export function Signup({
     name: yup.string().required(),
   });
 
-  const { register, handleSubmit, formState: {errors} } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(schemas),
   });
 

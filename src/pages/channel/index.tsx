@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Nav from "@/utils/ui/layout/navbar";
-import { ResponseChannel } from "@/utils/types/Channel";
+import { ResponseChannel } from "@/types/Channel";
 import { getChannels } from "@/lib/api/channelApi";
 import ChannelComponent from "@/components/channel/channelComponent";
 import { useRouter } from "next/router";

@@ -1,4 +1,4 @@
-import { EditChannelProps } from "@/utils/types/propsTypes";
+import { EditChannelProps } from "@/types/propsTypes";
 import Backdrop from "@/utils/ui/backdrop/backdrop";
 import Nav from "@/utils/ui/layout/navbar";
 import HandleError from "@/utils/ui/modals/errorHandling";

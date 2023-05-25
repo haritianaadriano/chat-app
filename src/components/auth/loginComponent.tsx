@@ -1,5 +1,5 @@
-import { LoginProps } from "@/utils/types/propsTypes";
-import { LoginType } from "@/utils/types/User";
+import { LoginProps } from "@/types/propsTypes";
+import { LoginType } from "@/types/User";
 import AuthentificationFailed from "@/utils/ui/modals/login";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -15,7 +15,11 @@ export default function Login({
     email: yup.string().email().required(),
   });
 
-  const { register, handleSubmit, formState: {errors} } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(schemas),
   });
   const close = () => {

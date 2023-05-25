@@ -1,4 +1,9 @@
-import { Channel, CreateChannel, EditChannel, ResponseChannel } from "@/utils/types/Channel";
+import {
+  Channel,
+  CreateChannel,
+  EditChannel,
+  ResponseChannel,
+} from "@/types/Channel";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { SetStateAction } from "react";
