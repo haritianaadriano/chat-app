@@ -1,5 +1,5 @@
 import { SetStateAction } from "react";
-import { ResponseChannel, UserOption } from "./Channel";
+import { EditChannel, ResponseChannel, UserOption } from "./Channel";
 import { ResponseMessage } from "./Message";
 
 export interface LoginProps {
@@ -20,14 +20,14 @@ export interface ChannelProps {
   response: ResponseChannel;
 }
 
-export interface CreateChannelProps {
-  data: any
-  setData: any
-  setUsersOptions?: any
-  users?: any
-  usersAdded?: any
+export interface EditChannelProps {
+  data: EditChannel
+  setData: React.Dispatch<SetStateAction<EditChannel>>
+  setUsersOptions?: React.Dispatch<SetStateAction<UserOption[]>>
+  users?: UserOption[]
+  usersAdded?: UserOption[]
   UsersSelected?: any
-  setUsersAdded?: any;
+  setUsersAdded: React.Dispatch<SetStateAction<UserOption[]>>;
   handleClick?: any
   handleClose?: any;
   dropIn?: any;
@@ -38,6 +38,19 @@ export interface CreateChannelProps {
   closeSuccessModal?: any;
   closeFailModal?: any;
   usersOptions?: UserOption[]
+}
+
+
+export interface CreateChannelProps {
+  handleClick?: any
+  handleClose?: any;
+  dropIn?: any;
+  modalOpen?: boolean;
+  openSuccess?: boolean;
+  openSuccessModal?: any;
+  openFailModal?: any;
+  closeSuccessModal?: any;
+  closeFailModal?: any;
 }
 
 export interface MessageProps {

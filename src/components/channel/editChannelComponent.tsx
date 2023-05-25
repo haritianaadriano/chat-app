@@ -1,4 +1,4 @@
-import { CreateChannelProps } from "@/utils/types/propsTypes";
+import { EditChannelProps } from "@/utils/types/propsTypes";
 import Backdrop from "@/utils/ui/backdrop/backdrop";
 import Nav from "@/utils/ui/layout/navbar";
 import HandleError from "@/utils/ui/modals/errorHandling";
@@ -20,7 +20,7 @@ export default function EditChannelComponent({
   UsersSelected,
   setData,
   data,
-}: CreateChannelProps) {
+}: EditChannelProps) {
   const handleChange = async (selected: any, selectaction: any) => {
     const { action } = selectaction;
     if (action === "clear") {
