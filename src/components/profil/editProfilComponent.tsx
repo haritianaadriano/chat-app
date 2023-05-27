@@ -7,10 +7,7 @@ export default function EditProfilComponent({
   sendUpdatedProfil,
   modalOpen,
 }: EditProfilProps) {
-  const {
-    register,
-    handleSubmit,
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = (data: UpdatedUser) => {
     console.log(data);

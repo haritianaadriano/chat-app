@@ -73,6 +73,7 @@ export function editChannel(
   channel_id: any
 ) {
   console.log(data);
+  openSuccessModal();
 
   axios
     .post(`${BACKEND_BASE_URL}/channels/${channel_id}/members`, data, {
@@ -84,7 +85,6 @@ export function editChannel(
     .then((response) => {
       if (response.status >= 200 && response.status < 300) {
         console.log(response);
-        openSuccessModal();
         return response.data;
       } else {
         throw new Error(`Unexpected response status: ${response.status}`);
@@ -92,7 +92,6 @@ export function editChannel(
     })
     .then((data) => {})
     .catch((error) => {
-      openFailModal();
       console.error(error);
     });
 }

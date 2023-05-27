@@ -18,8 +18,13 @@ export default function ChannelMessageComponent({
       <header>
         <Nav />
       </header>
-      <h1>{Cookies.get("channel_name")}</h1>
+      <h1>Channel: {Cookies.get("channel_name")}</h1>
       <button onClick={moveToEditChannel}>edit</button>
+      <div>
+        <li>
+          
+        </li>
+      </div>
       <div>
         {response &&
           response.messages?.map((message: Message) => {

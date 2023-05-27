@@ -40,7 +40,7 @@ export default function EditChannel({ handleClose }: any) {
 
   function handleClick(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    editChannel(data, openFailModal, openFailModal, Cookies.get("channel_id"));
+    editChannel(data, openSuccessModal, openFailModal, Cookies.get("channel_id"));
   }
 
   function UsersSelected(users: UserOption[]) {

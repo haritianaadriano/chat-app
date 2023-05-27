@@ -62,17 +62,9 @@ export default function EditChannelComponent({
               onChange={handleChange}
               placeholder="Users"
             />
-
             <button type="submit">Edit Channel</button>
           </form>
         </motion.div>
-        {modalOpen && (
-          <HandleError
-            message={"Error when adding member"}
-            handleClose={closeFailModal}
-            modalOpen={modalOpen}
-          />
-        )}
         {openSuccess && (
           <HandleSuccess
             message={"Member added successfully"}

@@ -59,6 +59,10 @@ export default function ChannelMessage() {
     };
   }, []);
 
+  useEffect(() =>{
+    
+  })
+
   return (
     <div>
       <ChannelMessageComponent
