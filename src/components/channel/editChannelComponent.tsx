@@ -1,7 +1,6 @@
 import { EditChannelProps } from "@/types/propsTypes";
 import Backdrop from "@/utils/ui/backdrop/backdrop";
 import Nav from "@/utils/ui/layout/navbar";
-import HandleError from "@/utils/ui/modals/errorHandling";
 import HandleSuccess from "@/utils/ui/modals/successHandling";
 import { motion } from "framer-motion";
 import Select from "react-select";

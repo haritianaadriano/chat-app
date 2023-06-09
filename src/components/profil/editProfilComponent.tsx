@@ -20,7 +20,7 @@ export default function EditProfilComponent({
         <div className="formContent">
           <h2 className="active">Edit profil</h2>
           <p className="active">Help people to know you ...</p>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(() => onSubmit)}>
             <input
               type="text"
               id="name"

@@ -41,7 +41,15 @@ export function Signup({
         <p className="active">Create your own account</p>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
-            type="text"
+              type="text"
+              id="name"
+              className="fadeIn fourth"
+              placeholder="name"
+              {...register("name")}
+          />
+          <p className="p-error">{String(errors.name?.message)}</p>
+          <input
+            type="email"
             id="email"
             className="fadeIn second"
             placeholder="email"
@@ -49,7 +57,7 @@ export function Signup({
           />
           <p className="p-error">{String(errors.email?.message)}</p>
           <input
-            type="text"
+            type="password"
             id="password"
             className="fadeIn third"
             placeholder="password"
@@ -57,13 +65,13 @@ export function Signup({
           />
           <p className="p-error">{String(errors.password?.message)}</p>
           <input
-            type="text"
-            id="name"
-            className="fadeIn fourth"
-            placeholder="name"
-            {...register("name")}
+              type="password"
+              id="password"
+              className="fadeIn third"
+              placeholder="confirm password"
+              name="confirmPassword"
           />
-          <p className="p-error">{String(errors.name?.message)}</p>
+          <p className="p-error">{String(errors.password?.message)}</p>
           <button type="submit" className="fadeIn fourth">
             SIGN UP
           </button>

@@ -1,0 +1,15 @@
+1. Introducion:
+	La création des buildpacks et dockerfiles. Les buildpacks ont longtemps existés bien
+avant les dockerfiles et a longtemps ete le standard de containerisation, puis l'arriver
+d'un nouveau rival qui est dotcloud pour révolutioner la maniére de packager une appli
+
+2. difference:
+	La plus grande différence entre les deux de maniére pratique est sa maniére de packager 
+et son fonctionnement:
+	dockerfile s'execute durant le packaging de l'application.
+	buildpack s'execute grace a des commandes spécifiques.
+
+3. comparaison:
+	la taille: vu que buildpack propose diverse fonctionnalite et facilite la demarche, elle est un peu plus lourde que de creer une image avec un dockerfile par contre dans une appli simple
+les buildpacks font tres bien l'affaire.
+	la securite: 

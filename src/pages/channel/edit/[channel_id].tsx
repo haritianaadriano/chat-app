@@ -40,7 +40,12 @@ export default function EditChannel({ handleClose }: any) {
 
   function handleClick(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    editChannel(data, openSuccessModal, openFailModal, Cookies.get("channel_id"));
+    editChannel(
+      data,
+      openSuccessModal,
+      openFailModal,
+      Cookies.get("channel_id")
+    );
   }
 
   function UsersSelected(users: UserOption[]) {
@@ -51,7 +56,7 @@ export default function EditChannel({ handleClose }: any) {
 
   function UsersOptions(users: Users) {
     let UsersOptions = [];
-    for (let i = 0; i < users?.users.length; i++) {
+    for (let i = 0; i < users?.users.length || 0; i++) {
       let newUserOption = new optionModel(
         users?.users[i].id,
         users?.users[i].name
