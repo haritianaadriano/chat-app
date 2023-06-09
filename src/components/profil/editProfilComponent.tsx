@@ -24,33 +24,46 @@ export default function EditProfilComponent({
             <input
               type="text"
               id="name"
-              className="fadeIn second"
+              className="fadeIn one"
               placeholder="name"
               {...register("name")}
             />
             <input
-              type="text"
-              id="oldPassword"
-              className="fadeIn third"
-              placeholder="oldPassword"
-              {...register("oldPassword")}
+                type="email"
+                id="email"
+                className="fadeIn second"
+                placeholder="email"
+                {...register("email")}
             />
             <input
-              type="text"
-              id="password"
+              type="password"
+              id="currentPassword"
+              className="fadeIn third"
+              placeholder="current password"
+              name="currentPassword"
+            />
+            <input
+              type="password"
+              id="newPassword"
               className="fadeIn fourth"
-              placeholder="password"
+              placeholder="new password"
               {...register("password")}
             />
             <input
-              type="text"
+                type="password"
+                id="confirmPassword"
+                className="fadeIn fourth"
+                placeholder="confirm Password"
+                {...register("confirmPassword")}
+            />
+            <textarea
               id="bio"
               className="fadeIn fourth"
               placeholder="bio"
               {...register("bio")}
             />
-            <button type="submit" className="fadeIn fourth">
-              UPDATE
+            <button type="submit" className="updateProfilButton">
+              Update Profile
             </button>
             {modalOpen && (
               <HandleSuccess handleClose={close} modalOpen={modalOpen} />

@@ -51,7 +51,7 @@ export default function Login({
             placeholder="password"
             {...register("password")}
           />
-          <button type="submit" className="fadeIn fourth">
+          <button type="submit" className="loginButton">
             LOG IN
           </button>
           <button onClick={router} className="fadeIn fourth">

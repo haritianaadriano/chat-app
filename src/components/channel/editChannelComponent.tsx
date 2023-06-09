@@ -61,7 +61,11 @@ export default function EditChannelComponent({
               onChange={handleChange}
               placeholder="Users"
             />
-            <button type="submit">Edit Channel</button>
+            <select name="type">
+              <option value="public">Public</option>
+              <option value="private">Private</option>
+            </select>
+            <button className="editChannelButton" type="submit">Edit Channel</button>
           </form>
         </motion.div>
         {openSuccess && (
